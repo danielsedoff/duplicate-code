@@ -1,5 +1,9 @@
 const MINIMAL_INTERSECTION = 100;
 const GLOB_PATH = './src/**/*(*.ts|*.tsx|*.js|*.jsx)';
+const LOG_DIR = './logs';
+const LOG_FILE = LOG_DIR + '/dupes.log';
+
+fs.mkdirSync(LOG_DIR);
 
 const { globSync } = require('glob');
 const fs = require('fs');
@@ -30,7 +34,6 @@ function formatLog(intersections) {
 }
 
 function findIntersection(string1, string2, minLength) {
-  // let lcs = '';
   tlcsStart = 0;
   tlcsEnd = 0;
   lcsLength = 0;
@@ -42,7 +45,6 @@ function findIntersection(string1, string2, minLength) {
     tAddress = string2.indexOf(string1.substring(tlcsStart, tlcsEnd));
     if (tAddress > -1) {
       if (tlcsEnd - tlcsStart > lcsLength) {
-        // lcs = string1.substring(tlcsStart, tlcsEnd);
         address = tAddress;
         lcsLength = tlcsEnd - tlcsStart;
       }
@@ -103,7 +105,7 @@ for (let i = 0; i < len; ++i) {
   }
 }
 
-fs.writeFile('./scripts/dupes-js.log', formatLog(intersections), (err) => {
+fs.writeFile(LOG_FILE, formatLog(intersections), (err) => {
   if (err) {
     console.error('✖ error writing', err);
   } else {
