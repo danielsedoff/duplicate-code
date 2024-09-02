@@ -1,0 +1,29 @@
+{
+  "name": "dupe-code",
+  "version": "0.0.1",
+  "description": "Find duplicate code in your JavaScript/TypeScript-based project",
+  "main": "dupe-code.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielsedoff/duplicate-code.git"
+  },
+  "keywords": [
+    "duplicate",
+    "inspection",
+    "javascript",
+    "typescript",
+    "code-analysis",
+    "refactoring",
+    "cleanup",
+    "dupes"
+  ],
+  "author": "danielsedoff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielsedoff/duplicate-code/issues"
+  },
+  "homepage": "https://github.com/danielsedoff/duplicate-code#readme"
+}
