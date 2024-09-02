@@ -3,11 +3,11 @@ const GLOB_PATH = './src/**/*(*.ts|*.tsx|*.js|*.jsx)';
 const LOG_DIR = './logs';
 const LOG_FILE = LOG_DIR + '/dupes.log';
 
-fs.mkdirSync(LOG_DIR);
-
 const { globSync } = require('glob');
 const fs = require('fs');
 const importRegex = /^import .+ from/;
+
+fs.mkdirSync(LOG_DIR);
 
 function printProgress(progress) {
   process.stdout.clearLine(0);
