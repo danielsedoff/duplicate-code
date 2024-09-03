@@ -7,7 +7,11 @@ const { globSync } = require('glob');
 const fs = require('fs');
 const importRegex = /^import .+ from/;
 
-fs.mkdirSync(LOG_DIR);
+try{
+  fs.mkdirSync(LOG_DIR);
+} catch(e){
+  console.log('WARN: couldn\'t create a /logs directory');
+}
 
 function printProgress(progress) {
   process.stdout.clearLine(0);
